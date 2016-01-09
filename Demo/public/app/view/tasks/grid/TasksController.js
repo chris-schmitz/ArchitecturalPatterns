@@ -4,6 +4,10 @@ Ext.define('Tasker.view.tasks.grid.TasksController', {
 
     onRowClick: function (grid, record){
         this.redirectTo('tasks/' + record.getId());
+    },
+
+    onReloadGrid: function (){
+        this.getView().getStore().reload();
     }
 
 });

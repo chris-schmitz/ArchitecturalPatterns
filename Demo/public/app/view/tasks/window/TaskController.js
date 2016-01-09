@@ -11,8 +11,10 @@ Ext.define('Tasker.view.tasks.window.TaskController', {
     toggleStatus: function (button){
         var record = this.getViewModel().get('record');
         var newStatus = !this.getViewModel().get('status');
-        record.set('status', newStatus);
+
         this.getView().mask('Updating...');
+
+        record.set('status', newStatus);
         record.save({
             scope: this,
             callback: function (record, operation, success){
@@ -30,5 +32,4 @@ Ext.define('Tasker.view.tasks.window.TaskController', {
     onDestroy: function (){
         this.redirectTo('tasks');
     }
-
 });

@@ -16,9 +16,11 @@ Ext.define('Tasker.controller.Navigation', {
     },
 
     onTasksNavigation: function (){
-        var grid = Ext.widget('tasksgrid');
         if(this.getContentArea().items.length === 0){
+            var grid = Ext.widget('tasksgrid');
             this.getContentArea().add(grid);
+        } else {
+            this.getContentArea().down('tasksgrid').fireEvent('reloadGrid');
         }
     },
 
@@ -30,10 +32,9 @@ Ext.define('Tasker.controller.Navigation', {
             scope: this,
             callback: function (record, operation, success){
                 if(success){
-                    var panel = Ext.widget('taskwindow');
-                    panel.fireEvent('loadRecord', record);
-                    // this.getContentArea().add(panel);
-                    panel.show();
+                    var win = Ext.widget('taskwindow');
+                    win.fireEvent('loadRecord', record);
+                    win.show();
                 } else {
                      Ext.toast('Unable to load task.', 'Loading error', 't');
                      this.redirectTo('tasks');

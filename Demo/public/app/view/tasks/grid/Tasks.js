@@ -18,7 +18,8 @@ Ext.define("Tasker.view.tasks.grid.Tasks",{
 
     autoLoad: true,
     listeners:{
-        itemclick: 'onRowClick'
+        itemclick: 'onRowClick',
+        reloadGrid: 'onReloadGrid'
     },
 
     columns:[

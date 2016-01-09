@@ -11,6 +11,9 @@ Ext.define('Tasker.view.tasks.window.TaskModel', {
         statusDisplay: function (get){
             var status = get('status');
             return status === true ? 'Complete' : 'In Progress';
+        },
+        statusButtonIconClass: function (get){
+            return get('status') === true ? 'fa fa-check-square-o': 'fa fa-square-o';
         }
     }
 

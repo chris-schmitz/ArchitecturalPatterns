@@ -32,15 +32,11 @@ Ext.define("Tasker.view.tasks.window.Task",{
         items:[
             "->",
             {
-                xtype: 'component',
-                html: 'Status'
-            },
-            {
                 xtype: 'button',
-                // name: 'status',
                 fieldLabel: 'Status',
                 bind:{
-                    text: '{statusDisplay}'
+                    text: '{statusDisplay}',
+                    iconCls: '{statusButtonIconClass}'
                 },
                 handler: 'toggleStatus'
             }
@@ -55,7 +51,7 @@ Ext.define("Tasker.view.tasks.window.Task",{
             layout: 'anchor',
             items:[
                 {
-                    xtype: 'textfield',
+                    xtype: 'displayfield',
                     name: 'description',
                     fieldLabel: 'Description',
                     anchor: '100%',
