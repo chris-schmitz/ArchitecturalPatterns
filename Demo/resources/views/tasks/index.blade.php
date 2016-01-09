@@ -25,13 +25,17 @@
                             <form class="form" action="{{ route('mvc.tasks.update', $task->id) }}" method="POST">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name = '_method' value="PATCH">
+
                                 <button
                                     type="submit"
                                     class="btn status-btn
-                                        {{ $task->status == 'Complete' ? 'btn-success' : 'btn-danger'}}"
+                                        {{ $task->status == true ? 'btn-success' : 'btn-danger'}}"
                                     name="status"
                                     value="{{ $task->status }}"
-                                    >{{ $task->status }}</button>
+                                >
+                                    {{-- Note that we're handling the display logic here in the view, not in the controller --}}
+                                    {{ $task->status ? 'Complete' : 'In Progress' }}
+                                </button>
                             </form>
                         </td>
                     </tr>
