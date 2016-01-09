@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Seeder
+use App\Task;
 
-class DatabaseSeeder extends Seeder
+class TaskSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TaskSeeder::class);
+        Task::truncate();
+        factory(App\Task::class)->create();
     }
 }

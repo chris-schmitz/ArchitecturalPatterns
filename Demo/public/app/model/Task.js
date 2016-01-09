@@ -4,7 +4,7 @@ Ext.define('Tasker.model.Task', {
     fields: [
         { name: 'id', type: 'int' },
         { name: 'description', type: 'string' },
-        { name: 'status', type: 'string' }
+        { name: 'status', type: 'boolean' }
     ],
     proxy:{
         type: 'rest',

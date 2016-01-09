@@ -41,14 +41,13 @@ class TaskController extends Controller
     {
         $task = $this->tasks->findOrFail($id);
 
-        if($request->get('status') == 'Complete'){
-            $task->status = "In Progress";
-        } else {
-            $task->status = "Complete";
-        }
+        // note that we're no longer handling the status toggle here, we're just
+        // accepting the new status handed to us by the client. We're handling
+        // the presentation of state to the user on the client side now, so
+        // our API can just accept the data and handle the persistance of it.
+        $task->status = $request->get('status');
         $task->save();
 
-        $tasks = $this->tasks->all();
-        return ['status' => 'success', 'message' => 'Task Updated.', 'data' => null];
+        return ['status' => 'success', 'message' => 'Task Updated.', 'data' => $task];
     }
 }

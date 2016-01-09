@@ -16,7 +16,7 @@
      return redirect('mvc/tasks');
  });
 
-Route::group(['prefix' => 'mvc', 'middleware' => 'web'], function () {
+Route::group(['prefix' => 'mvc', 'middleware' => ['web', 'csrf']], function () {
 
     Route::resource('tasks', 'MVC\TaskController');
 

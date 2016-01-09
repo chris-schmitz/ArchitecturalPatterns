@@ -29,7 +29,11 @@ Ext.define("Tasker.view.tasks.grid.Tasks",{
         },
         {
             text: 'Status',
-            dataIndex: 'status'
+            dataIndex: 'status',
+            align: 'center',
+            renderer: function (value){
+                return value == true ? 'Complete' : 'In Progress';
+            }
         }
     ]
 });

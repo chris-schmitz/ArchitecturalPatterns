@@ -16,6 +16,8 @@ Ext.define('Tasker.Application', {
         // TODO: add global / shared stores here
     ],
 
+    defaultToken: 'tasks',
+
     launch: function () {
         // this.redirectTo('tasks');
     },

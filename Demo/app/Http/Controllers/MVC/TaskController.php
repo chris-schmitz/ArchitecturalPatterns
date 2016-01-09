@@ -35,10 +35,10 @@ class TaskController extends Controller
     {
         $task = $this->tasks->findOrFail($id);
 
-        if($request->get('status') == 'Complete'){
-            $task->status = "In Progress";
+        if($request->get('status') == true){
+            $task->status = false;
         } else {
-            $task->status = "Complete";
+            $task->status = true;
         }
         $task->save();
 

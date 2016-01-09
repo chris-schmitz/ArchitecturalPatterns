@@ -13,7 +13,8 @@ Ext.define("Tasker.view.tasks.window.Task",{
     },
 
     modal: true,
-    height: 300,
+    resizeable: true,
+    height: 200,
     width: 500,
     bodyPadding:10,
     bind:{
@@ -24,21 +25,44 @@ Ext.define("Tasker.view.tasks.window.Task",{
         destroy: 'onDestroy'
     },
 
+    dockedItems:{
+        xtype: 'toolbar',
+        dock: 'bottom',
+        ui: 'footer',
+        items:[
+            "->",
+            {
+                xtype: 'component',
+                html: 'Status'
+            },
+            {
+                xtype: 'button',
+                // name: 'status',
+                fieldLabel: 'Status',
+                bind:{
+                    text: '{statusDisplay}'
+                },
+                handler: 'toggleStatus'
+            }
+        ]
+    },
+
+
     items:[
         {
             xtype: 'form',
             reference: 'taskform',
+            layout: 'anchor',
             items:[
                 {
                     xtype: 'textfield',
                     name: 'description',
-                    fieldLabel: 'Description'
-                },
-                {
-                    xtype: 'textfield',
-                    name: 'status',
-                    fieldLabel: 'Status'
-                },
+                    fieldLabel: 'Description',
+                    anchor: '100%',
+                    bind:{
+                        value: '{record.description}'
+                    }
+                }
             ]
         }
     ]
