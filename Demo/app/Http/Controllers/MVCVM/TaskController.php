@@ -31,6 +31,12 @@ class TaskController extends Controller
         return ['status' => 'success', 'message' => null, 'data' => $tasks];
     }
 
+    public function show($id){
+        $task = $this->tasks->findOrFail($id);
+
+        return ['status' => 'success', 'message' => null, 'data' => $task];
+    }
+
     public function update(Request $request, $id)
     {
         $task = $this->tasks->findOrFail($id);
