@@ -1,7 +1,23 @@
-@extends('base.default')
+@extends('base.vue')
+
+@section('after-scripts')
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+
+            data:{
+                test: 'worked'
+            }
+        });
+    </script>
+@stop
 
 @section('content')
 <div class="panel panel-primary">
+
+    @{{ test }}
+
     <div class="panel-heading">
         <h2>Tasks</h2>
     </div>
@@ -15,15 +31,13 @@
                     Status
                 </th>
             </tr>
-            @foreach($tasks as $task)
+
+            {{-- @foreach($tasks as $task)
                 <tr>
                     <td>
                         {{ $task->description }}
                     </td>
                     <td>
-                        <form class="form" action="{{ route('mvc.tasks.update', $task->id) }}" method="POST">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name = '_method' value="PATCH">
                             <button
                                 type="submit"
                                 class="btn status-btn
@@ -31,10 +45,9 @@
                                 name="status"
                                 value="{{ $task->status }}"
                                 >{{ $task->status }}</button>
-                        </form>
                     </td>
                 </tr>
-            @endforeach
+            @endforeach --}}
         </table>
     </div>
 </div>

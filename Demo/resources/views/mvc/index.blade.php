@@ -1,4 +1,4 @@
-@extends('base.default')
+@extends('base.jquery')
 
 @section('content')
 

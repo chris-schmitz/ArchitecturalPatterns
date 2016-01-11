@@ -28,7 +28,7 @@ class TaskController extends Controller
     {
         $tasks = $this->tasks->all();
         // come back and get total complete and total in progress
-        return view('tasks.index', compact('tasks'));
+        return view('mvc.index', compact('tasks'));
     }
 
     public function update(Request $request, $id)
@@ -43,6 +43,6 @@ class TaskController extends Controller
         $task->save();
 
         $tasks = $this->tasks->all();
-        return view('tasks.index', compact('tasks'));
+        return view('mvc.index', compact('tasks'));
     }
 }
