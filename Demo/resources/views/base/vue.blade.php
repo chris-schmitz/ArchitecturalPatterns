@@ -15,6 +15,7 @@
     <body>
 
         <div id="app" class="container main-container">
+            @yield('templates')
             @yield('content')
         </div>
 
@@ -22,7 +23,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
         <!-- for mvvm demo -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.min.js" type="text/javascript"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.js" type="text/javascript"></script>
         @yield('after-scripts')
     </body>
 </html>
