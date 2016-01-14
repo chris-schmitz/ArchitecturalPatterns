@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Task;
 use Illuminate\Http\Request;
 
-
 /**
  * Note that THIS IS NOT OPTIMIZED CODE!
  * methods have not been abstracted and subclasses have not been created so that
@@ -35,10 +34,10 @@ class TaskController extends Controller
     {
         $task = $this->tasks->findOrFail($id);
 
-        if($request->get('status') == true){
-            $task->status = false;
+        if ($request->get('status') == true) {
+            $task->markIncomplete();
         } else {
-            $task->status = true;
+            $task->markComplete();
         }
         $task->save();
 
