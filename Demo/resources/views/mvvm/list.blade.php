@@ -46,6 +46,7 @@
                 <tr v-for="task in tasks">
                     <td>
                         @{{ task.description }}
+                        {{-- <input v-model="task.description"> --}}
                     </td>
                     <td>
                         <button
